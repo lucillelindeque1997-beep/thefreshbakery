@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Fresh Start Bakery Chain Revitalization Project - Strategic Business Analysis Case Study">
+    <meta name="author" content="Business Strategy Consultant">
+    <title>Fresh Start Bakery Chain Revitalization | Case Study</title>
+    
+    <!-- Fonts for professional typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js CDN with fallback -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            font-size: 16px;
+        }
+
+        /* Professional Document Container */
+        .document-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 60px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            min-height: 100vh;
+        }
+
+        /* Typography Hierarchy */
+        .document-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0d1117;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .document-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #0d1117;
+            margin: 3rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .subsection-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #374151;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .subsection-subtitle {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #4b5563;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        /* Body Text Styles */
+        .section-content p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .section-content ul, .section-content ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Emphasis and Strong Text */
+        strong {
+            font-weight: 600;
+            color: #0d1117;
+        }
+
+        em {
+            font-style: italic;
+            color: #374151;
+        }
+
+        /* Professional Dividers */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d1d5db, transparent);
+            margin: 2.5rem 0;
+        }
+
+        /* Header Section */
+        .document-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #f3f4f6;
+        }
+
+        .case-study-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        /* Section Containers */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-content {
+            margin-top: 1rem;
+        }
+
+        /* Print Styles for PDF Generation */
+        @media print {
+            body {
+                font-size: 12px;
+                line-height: 1.4;
+            }
+
+            .document-container {
+                max-width: none;
+                padding: 20mm;
+                box-shadow: none;
+                margin: 0;
+            }
+
+            .document-title {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 18px;
+                page-break-after: avoid;
+            }
+
+            .subsection-title {
+                font-size: 16px;
+                page-break-after: avoid;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .case-study-meta {
+                break-inside: avoid;
+            }
+        }
+
+        /* Table of Contents Styles */
+        .toc-container {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            max-width: 240px;
+            width: 240px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hide TOC on screens where it would overlap */
+        @media (max-width: 1200px) {
+            .toc-container {
+                display: none;
+            }
+        }
+
+        /* Show TOC only on very large screens */
+        @media (min-width: 1201px) {
+            .document-container {
+                margin-right: 280px; /* Make space for TOC */
+            }
+        }
+
+        .toc-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc-item {
+            margin-bottom: 0.75rem;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .toc-link:hover {
+            background-color: #f3f4f6;
+            color: #374151;
+            transform: translateX(2px);
+        }
+
+        .toc-link.active {
+            background-color: #eff6ff;
+            color: #2563eb;
+            border-left-color: #3b82f6;
+            font-weight: 600;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Download Button */
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Executive Banner Styles */
+        .executive-banner {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .executive-banner .highlight {
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Conflict Resolution Styles */
+        .conflict-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .conflict-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid;
+            background: white;
+        }
+
+        .conflict-card.resistance {
+            border-color: #fecaca;
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+        }
+
+        .conflict-card.pressure {
+            border-color: #fed7aa;
+            background: linear-gradient(135deg, #fff7ed, #ffedd5);
+        }
+
+        .conflict-card.solution {
+            border-color: #bbf7d0;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        }
+
+        /* Chart and Visual Assets Styles */
+        .chart-container {
+            background: #fafbfc;
+            border: 1px solid #e1e5e9;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .chart-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+            margin: 1rem 0;
+        }
+
+        .chart-wrapper.large {
+            height: 400px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .roi-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .roi-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .roi-before {
+            background: #fef2f2;
+            border: 2px solid #fecaca;
+        }
+
+        .roi-after {
+            background: #f0fdf4;
+            border: 2px solid #bbf7d0;
+        }
+
+        .roi-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .roi-before h4 {
+            color: #dc2626;
+        }
+
+        .roi-after h4 {
+            color: #16a34a;
+        }
+
+        .chart-insights {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .chart-insights h4 {
+            color: #92400e;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .chart-insights p {
+            color: #78350f;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Visual Deliverables Styles */
+        .deliverable-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .mockup-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mockup-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .phone-mockup {
+            background: #1f2937;
+            border-radius: 25px;
+            padding: 20px 15px;
+            width: 200px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-screen {
+            background: white;
+            border-radius: 15px;
+            height: 100%;
+            padding: 15px;
+            color: #374151;
+            font-size: 12px;
+        }
+
+        .app-header {
+            background: #3b82f6;
+            color: white;
+            padding: 8px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .menu-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: #f8fafc;
+            border-radius: 6px;
+            border-left: 3px solid #10b981;
+            font-size: 11px;
+        }
+
+        .system-diagram {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .system-box {
+            display: inline-block;
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1e40af;
+        }
+
+        .system-arrow {
+            font-size: 1.5rem;
+            color: #6b7280;
+            margin: 0 1rem;
+        }
+
+        .brand-palette {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+        }
+
+        .color-swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .color-label {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .timeline-container {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3b82f6;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #3b82f6;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-left: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-month {
+            font-weight: 600;
+            color: #3b82f6;
+            font-size: 0.9rem;
+        }
+
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .risk-item {
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .risk-low {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .risk-medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .risk-high {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .document-container {
+                padding: 20px 30px;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .document-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .case-study-meta {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .download-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 0.75rem 1.25rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Medium screens - TOC is hidden, ensure document is centered */
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .document-container {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .document-container {
+                padding: 15px 20px;
+            }
+
+            .document-title {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.35rem;
+            }
+
+            .deliverable-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .roi-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .risk-matrix {
+                grid-template-columns: 1fr;
+            }
+
+            .phone-mockup {
+                width: 180px;
+                height: 360px;
+            }
+        }
+
+        /* Print Enhancements for PDF */
+        @media print {
+            .toc-container,
+            .download-btn {
+                display: none !important;
+            }
+
+            .chart-container {
+                break-inside: avoid;
+                margin: 1rem 0;
+            }
+
+            .deliverable-showcase {
+                break-inside: avoid;
+            }
+
+            .timeline-container {
+                break-inside: avoid;
+            }
+
+            .mockup-container {
+                background: #f3f4f6 !important;
+                color: #374151 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .metric-card {
+                background: #e5e7eb !important;
+                color: #374151 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Table of Contents -->
+    <nav class="toc-container">
+        <h3 class="toc-title">Table of Contents</h3>
+        <ul class="toc-list">
+            <li class="toc-item">
+                <a href="#context" class="toc-link">I. Context & Challenge</a>
+            </li>
+            <li class="toc-item">
+                <a href="#diagnosis" class="toc-link">II. Diagnostic Approach</a>
+            </li>
+            <li class="toc-item">
+                <a href="#recommendations" class="toc-link">III. Strategic Recommendations</a>
+            </li>
+            <li class="toc-item">
+                <a href="#results" class="toc-link">IV. Projected Results</a>
+            </li>
+            <li class="toc-item">
+                <a href="#deliverables" class="toc-link">V. Key Deliverables</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Download Button -->
+    <a href="#" class="download-btn" onclick="downloadPDF()">
+        📄 Download PDF
+    </a>
+
+    <div class="document-container">
+        <!-- Document Header -->
+        <header class="document-header">
+            <h1 class="document-title">The Fresh Start Bakery Chain Revitalization Project</h1>
+            <p class="document-subtitle">Strategic Business Analysis & Digital Transformation Case Study</p>
+            
+            <div class="case-study-meta">
+                <span><strong>Industry:</strong> Food & Beverage Retail</span>
+                <span><strong>Focus Area:</strong> Digital Transformation & Operational Efficiency</span>
+                <span><strong>Project Duration:</strong> 18 Months</span>
+            </div>
+        </header>
+
+        <!-- Executive Summary Banner -->
+        <div class="executive-banner">
+            <span class="highlight">🎯 EXECUTIVE SUMMARY</span>
+            $500K Revenue Recovery | 40% Waste Reduction | 18-Month Digital Transformation
+        </div>
+
+        <!-- Section I: Context and Challenge -->
+        <section class="section" id="context">
+            <h2 class="section-title">I. The Context and Dual Challenge</h2>
+            <div class="section-content">
+                <h3 class="subsection-title">Client Profile</h3>
+                <p>The Fresh Start Bakery Chain, a regional bakery operation with twenty established locations known for its high-quality, artisan products and loyal, but aging, customer base.</p>
+                
+                <h3 class="subsection-title">The Challenge</h3>
+                <p>The Fresh Start Bakery Chain is struggling to maintain profitability as rising ingredient and labor costs squeeze margins, while simultaneously losing market relevance by failing to attract younger, tech-savvy customers who prefer competitors with superior digital commerce and modern branding. This dual challenge of financial pressure and digital obsolescence threatens the viability of its established regional footprint and loyal customer base.</p>
+            </div>
+        </section>
+
+        <!-- Section II: Diagnostic Approach -->
+        <section class="section" id="diagnosis">
+            <h2 class="section-title">II. Diagnostic Approach and Key Findings</h2>
+            <div class="section-content">
+                <p>Our analysis aimed to diagnose the root causes of shrinking profitability and market irrelevance, blending internal operational review with external competitive benchmarking.</p>
+                
+                <h3 class="subsection-title">Key Analytical Methods</h3>
+                <ul>
+                    <li><strong>SWOT Analysis:</strong> Contextualized the company's strong regional footprint and artisan quality against its internal weaknesses (wastage, lack of modern technology) and external threats (price volatility, market flooding).</li>
+                    <li><strong>Stakeholder Analysis:</strong> Gathered critical insights from management regarding operational constraints and product wastage, and determined key digital feature gaps from the target customer base.</li>
+                    <li><strong>Competitor Benchmarking (The Daily Grind):</strong> Identified that successful rivals are utilizing seamless digital commerce platforms and visually-focused, 'Instagrammable' branding to capture the younger demographic.</li>
+                </ul>
+
+                <h3 class="subsection-title">Stakeholder Conflict Analysis</h3>
+                <div class="chart-container">
+                    <h4 class="chart-title">Critical Stakeholder Positions & Conflicts</h4>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+                        <div style="background: #fef2f2; border: 2px solid #fecaca; border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="color: #dc2626; margin-bottom: 1rem;">⚠️ Operations Team Resistance</h4>
+                            <p><strong>Position:</strong> Opposed to rapid digital transformation</p>
+                            <p><strong>Concerns:</strong></p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li>Staff training complexity for BMS system</li>
+                                <li>Disruption to established workflows</li>
+                                <li>Fear of technology replacing human expertise</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: #fff7ed; border: 2px solid #fed7aa; border-radius: 12px; padding: 1.5rem;">
+                            <h4 style="color: #ea580c; margin-bottom: 1rem;">⚡ Management Team Pressure</h4>
+                            <p><strong>Position:</strong> Demands immediate cost reduction</p>
+                            <p><strong>Concerns:</strong></p>
+                            <ul style="margin-top: 0.5rem;">
+                                <li>Quarterly profit margins declining</li>
+                                <li>Board pressure for quick wins</li>
+                                <li>Limited budget for long-term investment</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background: #f0fdf4; border: 2px solid #bbf7d0; border-radius: 12px; padding: 1.5rem; margin: 1rem 0;">
+                        <h4 style="color: #16a34a; margin-bottom: 1rem;">✅ Strategic Compromise Solution</h4>
+                        <p><strong>Resolution Strategy:</strong> Phased implementation with parallel training and gradual system integration to minimize disruption while achieving measurable cost savings within first quarter.</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+                            <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px;">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #16a34a;">Phase 1</div>
+                                <div style="font-size: 0.9rem;">Quick Wins (3 months)</div>
+                            </div>
+                            <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px;">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #3b82f6;">Phase 2</div>
+                                <div style="font-size: 0.9rem;">System Integration (6 months)</div>
+                            </div>
+                            <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px;">
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #8b5cf6;">Phase 3</div>
+                                <div style="font-size: 0.9rem;">Full Optimization (9 months)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section III: Strategic Recommendations -->
+        <section class="section" id="recommendations">
+            <h2 class="section-title">III. Strategic Recommendations and Solution Architecture</h2>
+            <div class="section-content">
+                <p>The recommended strategy is a targeted investment that leverages the company's core strength (quality) while aggressively addressing its weaknesses (cost control and digital gap).</p>
+                
+                <h3 class="subsection-title">Recommendation 1: Digital-First Customer Engagement</h3>
+                <p><strong>Action:</strong> Launch a comprehensive mobile and web application incorporating core order-ahead, mobile payment, and loyalty features.</p>
+                <p><strong>Differentiators:</strong> The platform will be uniquely integrated with ingredient transparency tools (calorie calculator/listings) and a community page for customer-generated content and product recommendations to build digital loyalty.</p>
+                <p><strong>Justification:</strong> The app is the only channel that can simultaneously capture the revenue from the younger, digitally-native demographic while also leveraging mobile ordering and data analytics to improve demand forecasting, directly leading to a reduction in costly product wastage.</p>
+                
+                <h3 class="subsection-title">Recommendation 2: Operational Efficiency & Cost Control</h3>
+                <p><strong>Action:</strong> Implement a modern Bakery Management System (BMS) integrated directly with the new digital platform.</p>
+                <p><strong>Cost Control Strategy:</strong> Mitigate the threat of volatile commodity prices by establishing strategic supplier partnerships that fix pricing through guaranteed volume commitment and favorable contract terms.</p>
+                <p><strong>Goal:</strong> Use the BMS for automated inventory tracking and data-driven demand forecasting to drastically reduce the high level of product wastage identified by store managers.</p>
+                
+                <h3 class="subsection-title">Recommendation 3: Modernize Brand & Product Line</h3>
+                <p><strong>Action:</strong> Execute a phased refresh of visual branding, store ambiance, and packaging, alongside the introduction of high-margin, visually appealing Limited Time Offer (LTO) products to generate market buzz.</p>
+            </div>
+        </section>
+
+        <!-- Section IV: Projected Results -->
+        <section class="section" id="results">
+            <h2 class="section-title">IV. Projected Results and Impact (ROI)</h2>
+            <div class="section-content">
+                <p>The implementation of these three recommendations is projected to stabilize margins and capture key market share, resulting in the following impact:</p>
+                
+                <!-- Key Metrics Overview -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">$500K</div>
+                        <div class="metric-label">New Annual Revenue</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">40%</div>
+                        <div class="metric-label">Waste Reduction</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">20%</div>
+                        <div class="metric-label">ATV Increase</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">18 Mo</div>
+                        <div class="metric-label">Implementation Timeline</div>
+                    </div>
+                </div>
+
+                <!-- Revenue Projection Chart -->
+                <div class="chart-container">
+                    <h4 class="chart-title">3-Year Revenue Projection: Digital vs. Traditional Sales</h4>
+                    <div class="chart-wrapper large">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                    <div class="chart-insights">
+                        <h4>Key Insight</h4>
+                        <p>Digital revenue is projected to grow from $0 to $500K annually by Year 2, representing 25% of total revenue and demonstrating successful market penetration among younger demographics.</p>
+                    </div>
+                </div>
+
+                <!-- ROI Before/After Comparison -->
+                <h3 class="subsection-title">ROI Impact Analysis</h3>
+                <div class="roi-comparison">
+                    <div class="roi-card roi-before">
+                        <h4>Before Implementation</h4>
+                        <p><strong>Annual Revenue:</strong> $2M</p>
+                        <p><strong>Product Waste:</strong> 25%</p>
+                        <p><strong>18-35 Demographics:</strong> 10%</p>
+                        <p><strong>Digital Sales:</strong> 0%</p>
+                        <p><strong>Profit Margins:</strong> Declining</p>
+                    </div>
+                    <div class="roi-card roi-after">
+                        <h4>After Implementation</h4>
+                        <p><strong>Annual Revenue:</strong> $2.5M</p>
+                        <p><strong>Product Waste:</strong> 15%</p>
+                        <p><strong>18-35 Demographics:</strong> 25%</p>
+                        <p><strong>Digital Sales:</strong> 25%</p>
+                        <p><strong>Profit Margins:</strong> +8% improvement</p>
+                    </div>
+                </div>
+
+                <!-- Cost Savings Breakdown Chart -->
+                <div class="chart-container">
+                    <h4 class="chart-title">Annual Cost Savings Breakdown</h4>
+                    <div class="chart-wrapper">
+                        <canvas id="costSavingsChart"></canvas>
+                    </div>
+                    <div class="chart-insights">
+                        <h4>Operational Impact</h4>
+                        <p>The 40% reduction in product wastage translates to $160K in annual savings, while improved inventory management and supplier partnerships contribute an additional $120K in cost reductions.</p>
+                    </div>
+                </div>
+
+                <!-- Market Share & Customer Acquisition Chart -->
+                <div class="chart-container">
+                    <h4 class="chart-title">Customer Acquisition Timeline (18-35 Demographics)</h4>
+                    <div class="chart-wrapper">
+                        <canvas id="customerAcquisitionChart"></canvas>
+                    </div>
+                    <div class="chart-insights">
+                        <h4>Strategic Achievement</h4>
+                        <p>Capturing 15% of the 18-35 demographic within 18 months represents approximately 3,000 new customers, with each contributing an average of $167 annually through the mobile platform.</p>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Digital-First Engagement (Revenue Goal)</h3>
+                <p>We project that the new mobile app will capture <strong>$500,000 in new annual revenue</strong>, primarily by attracting 15% of the local 18-35 demographic within the first 18 months, leading to a 20% increase in average transaction value (ATV) from app users due to personalized offers.</p>
+                
+                <h3 class="subsection-title">Operational Efficiency (Cost Savings Goal)</h3>
+                <p>By integrating the Bakery Management System (BMS) with the new digital platform's pre-order data, we anticipate a <strong>reduction in product wastage by 40%</strong> within the first year, resulting in an estimated annual cost savings of 8% of the current ingredient and labor expenses.</p>
+            </div>
+        </section>
+
+        <!-- Section V: Key Deliverables -->
+        <section class="section" id="deliverables">
+            <h2 class="section-title">V. Key Deliverables and Visual Assets</h2>
+            <div class="section-content">
+                <p>The strategic implementation includes the following concrete deliverables and supporting materials:</p>
+                
+                <h3 class="subsection-title">5.1 Digital Platform Specifications</h3>
+                
+                <!-- Mobile App Wireframes -->
+                <div class="deliverable-showcase">
+                    <div class="mockup-container">
+                        <h4 style="margin-bottom: 1rem; text-align: center;">Mobile App Interface</h4>
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="app-header">Fresh Start Bakery</div>
+                                <div style="margin-bottom: 10px; font-weight: 600;">Quick Order</div>
+                                <div class="menu-item">🥐 Croissant - $3.50</div>
+                                <div class="menu-item">🍞 Artisan Bread - $5.25</div>
+                                <div class="menu-item">🧁 Cupcakes - $2.75</div>
+                                <div style="margin: 15px 0; text-align: center; font-weight: 600;">Loyalty Points: 847</div>
+                                <div style="background: #10b981; color: white; padding: 10px; border-radius: 8px; text-align: center; font-weight: 600;">Order Ahead</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="system-diagram">
+                        <h4 style="margin-bottom: 1rem;">System Architecture</h4>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+                            <div class="system-box">Mobile App</div>
+                            <span class="system-arrow">→</span>
+                            <div class="system-box">API Gateway</div>
+                            <span class="system-arrow">→</span>
+                            <div class="system-box">BMS System</div>
+                        </div>
+                        <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+                            <div class="system-box">Payment Gateway</div>
+                            <span class="system-arrow">↑</span>
+                            <div class="system-box">Inventory DB</div>
+                            <span class="system-arrow">↑</span>
+                            <div class="system-box">Analytics</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">5.2 Operational Efficiency Tools</h3>
+                
+                <!-- Implementation Timeline -->
+                <div class="timeline-container">
+                    <h4 style="margin-bottom: 1.5rem; text-align: center;">12-Month BMS Implementation Timeline</h4>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-month">Month 1-2</div>
+                                <p><strong>System Setup & Integration</strong><br>Install BMS hardware, configure software, integrate with existing POS systems</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-month">Month 3-4</div>
+                                <p><strong>Staff Training & Pilot</strong><br>Train management teams, run pilot program at 5 locations, collect feedback</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-month">Month 5-8</div>
+                                <p><strong>Phased Rollout</strong><br>Deploy to remaining 15 locations, optimize workflows, establish supplier partnerships</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-month">Month 9-12</div>
+                                <p><strong>Optimization & Analysis</strong><br>Fine-tune algorithms, measure waste reduction, achieve 40% waste reduction target</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">5.3 Brand Modernization Assets</h3>
+                
+                <!-- Brand Identity -->
+                <div class="chart-container">
+                    <h4 class="chart-title">Updated Brand Identity & Color Palette</h4>
+                    <div class="brand-palette">
+                        <div>
+                            <div class="color-swatch" style="background: #2563eb;"></div>
+                            <div class="color-label">Primary Blue<br>#2563eb</div>
+                        </div>
+                        <div>
+                            <div class="color-swatch" style="background: #10b981;"></div>
+                            <div class="color-label">Fresh Green<br>#10b981</div>
+                        </div>
+                        <div>
+                            <div class="color-swatch" style="background: #f59e0b;"></div>
+                            <div class="color-label">Warm Gold<br>#f59e0b</div>
+                        </div>
+                        <div>
+                            <div class="color-swatch" style="background: #374151;"></div>
+                            <div class="color-label">Modern Gray<br>#374151</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 8px;">
+                        <p style="margin: 0; font-style: italic;">"Fresh Start Bakery - Where Tradition Meets Innovation"</p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: #6b7280;">Modern, approachable branding that appeals to both loyal customers and digital-native demographics</p>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">5.4 Financial Projections and Risk Assessment</h3>
+                
+                <!-- Risk Assessment Matrix -->
+                <div class="chart-container">
+                    <h4 class="chart-title">Risk Assessment Matrix</h4>
+                    <div class="risk-matrix">
+                        <div class="risk-item risk-low">
+                            <strong>Technical Integration</strong><br>
+                            Low Risk<br>
+                            Proven BMS solutions available
+                        </div>
+                        <div class="risk-item risk-medium">
+                            <strong>Customer Adoption</strong><br>
+                            Medium Risk<br>
+                            Requires marketing investment
+                        </div>
+                        <div class="risk-item risk-low">
+                            <strong>Staff Training</strong><br>
+                            Low Risk<br>
+                            Comprehensive training program
+                        </div>
+                        <div class="risk-item risk-medium">
+                            <strong>Supplier Partnerships</strong><br>
+                            Medium Risk<br>
+                            Dependent on negotiation success
+                        </div>
+                        <div class="risk-item risk-high">
+                            <strong>Market Competition</strong><br>
+                            High Risk<br>
+                            Competitors may respond quickly
+                        </div>
+                        <div class="risk-item risk-low">
+                            <strong>ROI Achievement</strong><br>
+                            Low Risk<br>
+                            Conservative projections used
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deliverables Summary -->
+                <div style="background: #eff6ff; border: 2px solid #3b82f6; border-radius: 12px; padding: 1.5rem; margin: 2rem 0;">
+                    <h4 style="color: #1e40af; margin-bottom: 1rem;">Complete Deliverable Package Includes:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <div>
+                            <strong>Digital Assets</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                                <li>Mobile app wireframes</li>
+                                <li>Web platform mockups</li>
+                                <li>UX journey maps</li>
+                                <li>Technical architecture</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Operational Tools</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                                <li>BMS implementation plan</li>
+                                <li>Inventory optimization</li>
+                                <li>Supplier agreements</li>
+                                <li>ROI tracking dashboard</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Brand Materials</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                                <li>Visual identity refresh</li>
+                                <li>Store design concepts</li>
+                                <li>Packaging portfolio</li>
+                                <li>LTO product concepts</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Financial Models</strong>
+                            <ul style="margin-top: 0.5rem; font-size: 0.9rem;">
+                                <li>3-year revenue projections</li>
+                                <li>Cost-benefit analysis</li>
+                                <li>Market share models</li>
+                                <li>Risk assessment matrix</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modular Deliverables Portfolio -->
+                <div style="background: #eff6ff; border: 2px solid #3b82f6; border-radius: 12px; padding: 2rem; margin: 3rem 0;">
+                    <h4 style="color: #1e40af; margin-bottom: 1.5rem; text-align: center; font-size: 1.2rem;">📁 Complete Deliverables Portfolio</h4>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #10b981; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <h5 style="color: #065f46; margin-bottom: 0.5rem;">📊 Financial Impact Model</h5>
+                            <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #374151;">Interactive ROI calculations, cost-benefit analysis, and 3-year revenue projections with sensitivity analysis.</p>
+                            <a href="#results" style="color: #059669; font-weight: 600; text-decoration: none; font-size: 0.9rem;">→ View Interactive Charts</a>
+                        </div>
+                        
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <h5 style="color: #1e40af; margin-bottom: 0.5rem;">🤝 Stakeholder Resolution Matrix</h5>
+                            <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #374151;">Documented conflicts, compromise solutions, and alignment strategies for Operations vs Management tensions.</p>
+                            <a href="#diagnosis" style="color: #2563eb; font-weight: 600; text-decoration: none; font-size: 0.9rem;">→ View Conflict Analysis</a>
+                        </div>
+                        
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #8b5cf6; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <h5 style="color: #6b21a8; margin-bottom: 0.5rem;">🏗️ Technical Architecture Blueprint</h5>
+                            <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #374151;">BMS integration roadmap, mobile app specifications, and system architecture for digital transformation.</p>
+                            <a href="#deliverables" style="color: #7c3aed; font-weight: 600; text-decoration: none; font-size: 0.9rem;">→ View Technical Specs</a>
+                        </div>
+                        
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <h5 style="color: #92400e; margin-bottom: 0.5rem;">📈 Implementation Timeline</h5>
+                            <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #374151;">12-month phased rollout plan with milestones, training schedules, and risk mitigation strategies.</p>
+                            <a href="#deliverables" style="color: #d97706; font-weight: 600; text-decoration: none; font-size: 0.9rem;">→ View Timeline</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Executive Summary Footer -->
+        <footer style="background: #1f2937; color: white; padding: 2rem; margin-top: 3rem; border-radius: 12px; text-align: center;">
+            <h3 style="color: #f3f4f6; margin-bottom: 1rem;">Project Impact Summary</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+                <div>
+                    <div style="font-size: 1.5rem; font-weight: 700; color: #10b981;">$500K</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">New Annual Revenue</div>
+                </div>
+                <div>
+                    <div style="font-size: 1.5rem; font-weight: 700; color: #3b82f6;">40%</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Waste Reduction</div>
+                </div>
+                <div>
+                    <div style="font-size: 1.5rem; font-weight: 700; color: #f59e0b;">25%</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Digital Revenue Share</div>
+                </div>
+                <div>
+                    <div style="font-size: 1.5rem; font-weight: 700; color: #8b5cf6;">18 Mo</div>
+                    <div style="font-size: 0.9rem; opacity: 0.8;">Implementation Timeline</div>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem; font-style: italic; opacity: 0.9;">"Transforming Fresh Start Bakery from regional tradition to digital innovation leader"</p>
+        </footer>
+    </div>
+
+    <script>
+        // Table of Contents Active Section Tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sections = document.querySelectorAll('.section');
+            
+            // Function to update active TOC link
+            function updateActiveTocLink() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Update active link on scroll
+            window.addEventListener('scroll', updateActiveTocLink);
+            
+            // Initial call to set active link
+            updateActiveTocLink();
+            
+            // Smooth scroll for TOC links
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 50;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        
+        // PDF Download Functionality
+        function downloadPDF() {
+            // Temporarily hide TOC and download button for printing
+            const toc = document.querySelector('.toc-container');
+            const downloadBtn = document.querySelector('.download-btn');
+            
+            toc.style.display = 'none';
+            downloadBtn.style.display = 'none';
+            
+            // Trigger print dialog
+            window.print();
+            
+            // Restore TOC and download button after print
+            setTimeout(() => {
+                toc.style.display = 'block';
+                downloadBtn.style.display = 'inline-flex';
+            }, 1000);
+        }
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + P for PDF download
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                downloadPDF();
+            }
+        });
+        
+        // Initialize Charts with simplified approach
+        function initializeCharts() {
+            // Ensure Chart.js is loaded
+            if (typeof Chart === 'undefined') {
+                console.error('Chart.js not available');
+                document.querySelectorAll('.chart-wrapper').forEach(wrapper => {
+                    wrapper.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #ef4444; font-weight: 600;">Chart.js failed to load</div>';
+                });
+                return;
+            }
+
+            console.log('Chart.js loaded successfully, creating charts...');
+
+            try {
+                // Revenue Projection Chart
+                const revenueCanvas = document.getElementById('revenueChart');
+                if (revenueCanvas && !revenueCanvas.getAttribute('data-chart-created')) {
+                    console.log('Creating revenue chart...');
+                    revenueCanvas.setAttribute('data-chart-created', 'true');
+                    
+                    new Chart(revenueCanvas.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['Year 0', 'Q1', 'Q2', 'Q3', 'Q4', 'Year 2', 'Year 3'],
+                        datasets: [{
+                            label: 'Digital Revenue',
+                            data: [0, 50, 125, 225, 350, 500, 650],
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        }, {
+                            label: 'Traditional Revenue',
+                            data: [2000, 2000, 2000, 2000, 2000, 2000, 2000],
+                            borderColor: '#6b7280',
+                            backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    font: { family: 'Inter', size: 12, weight: '500' }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: { display: true, text: 'Revenue (in thousands $)' },
+                                grid: { color: '#f3f4f6' }
+                            },
+                            x: {
+                                title: { display: true, text: 'Timeline' },
+                                grid: { color: '#f3f4f6' }
+                            }
+                        }
+                    }
+                });
+            }
+
+                // Cost Savings Chart
+                const costCanvas = document.getElementById('costSavingsChart');
+                if (costCanvas && !costCanvas.getAttribute('data-chart-created')) {
+                    console.log('Creating cost savings chart...');
+                    costCanvas.setAttribute('data-chart-created', 'true');
+                    
+                    new Chart(costCanvas.getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Reduced Waste', 'Inventory Optimization', 'Supplier Partnerships', 'Labor Efficiency'],
+                        datasets: [{
+                            data: [160, 80, 40, 35],
+                            backgroundColor: [
+                                '#10b981',
+                                '#3b82f6',
+                                '#8b5cf6',
+                                '#f59e0b'
+                            ],
+                            borderWidth: 3,
+                            borderColor: '#ffffff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 20,
+                                    usePointStyle: true,
+                                    font: { family: 'Inter', size: 11 }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+                // Customer Acquisition Chart
+                const customerCanvas = document.getElementById('customerAcquisitionChart');
+                if (customerCanvas && !customerCanvas.getAttribute('data-chart-created')) {
+                    console.log('Creating customer acquisition chart...');
+                    customerCanvas.setAttribute('data-chart-created', 'true');
+                    
+                    new Chart(customerCanvas.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Month 1-3', 'Month 4-6', 'Month 7-9', 'Month 10-12', 'Month 13-15', 'Month 16-18'],
+                        datasets: [{
+                            label: 'New Customers Acquired',
+                            data: [200, 450, 650, 850, 1100, 1250],
+                            backgroundColor: 'rgba(99, 102, 241, 0.8)',
+                            borderColor: '#6366f1',
+                            borderWidth: 2,
+                            borderRadius: 4
+                        }, {
+                            label: 'Cumulative Total',
+                            type: 'line',
+                            data: [200, 650, 1300, 2150, 3250, 4500],
+                            borderColor: '#f59e0b',
+                            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4,
+                            yAxisID: 'y1'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    font: { family: 'Inter', size: 12, weight: '500' }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                title: { display: true, text: 'New Customers' },
+                                grid: { color: '#f3f4f6' }
+                            },
+                            y1: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                title: { display: true, text: 'Cumulative Total' },
+                                grid: { drawOnChartArea: false }
+                            },
+                            x: {
+                                title: { display: true, text: 'Implementation Timeline' },
+                                grid: { color: '#f3f4f6' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            } catch (error) {
+                console.error('Error creating charts:', error);
+                document.querySelectorAll('.chart-wrapper').forEach(wrapper => {
+                    wrapper.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 100%; color: #ef4444; font-weight: 600;">Error creating chart</div>';
+                });
+            }
+        }
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.metric-card, .chart-container, .mockup-container');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                } else {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(30px)';
+                }
+            });
+        }
+
+        // Initialize animations
+        function initializeAnimations() {
+            const elements = document.querySelectorAll('.metric-card, .chart-container, .mockup-container');
+            elements.forEach(element => {
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+            });
+            
+            animateOnScroll();
+            window.addEventListener('scroll', animateOnScroll);
+        }
+
+        // Enhanced PDF download with better formatting
+        function downloadPDF() {
+            const toc = document.querySelector('.toc-container');
+            const downloadBtn = document.querySelector('.download-btn');
+            const originalTitle = document.title;
+            
+            // Hide navigation elements
+            toc.style.display = 'none';
+            downloadBtn.style.display = 'none';
+            
+            // Set PDF title
+            document.title = 'Fresh Start Bakery - Strategic Revitalization Case Study';
+            
+            // Add print timestamp
+            const footer = document.querySelector('footer');
+            const timestamp = document.createElement('div');
+            timestamp.style.cssText = 'margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;';
+            timestamp.textContent = `Generated on ${new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })}`;
+            footer.appendChild(timestamp);
+            
+            // Trigger print
+            window.print();
+            
+            // Restore elements after print
+            setTimeout(() => {
+                toc.style.display = 'block';
+                downloadBtn.style.display = 'inline-flex';
+                document.title = originalTitle;
+                footer.removeChild(timestamp);
+            }, 1000);
+        }
+
+        // Loading animation for charts
+        function showChartLoading() {
+            // Don't overwrite canvas elements - they're already in the HTML
+            console.log('Chart containers ready for initialization');
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            // Don't show loading - let the canvas elements stay
+            initializeAnimations();
+            
+            // Initialize TOC functionality (existing code)
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sections = document.querySelectorAll('.section');
+            
+            function updateActiveTocLink() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= (sectionTop - 200)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveTocLink);
+            updateActiveTocLink();
+            
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 50;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+
+
+        // Simple initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, waiting for Chart.js...');
+            setTimeout(function() {
+                if (typeof Chart !== 'undefined') {
+                    console.log('Chart.js ready, initializing charts...');
+                    initializeCharts();
+                } else {
+                    console.error('Chart.js not loaded');
+                    setTimeout(initializeCharts, 1000); // Try again after 1 second
+                }
+            }, 500);
+        });
+
+        // Add some interactive hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const metricCards = document.querySelectorAll('.metric-card');
+            metricCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+        
+        console.log('Fresh Start Bakery Case Study - Professional Document Fully Loaded ✨');
+
+        // Debug: Test Chart.js availability on page load
+        window.addEventListener('load', function() {
+            console.log('Window loaded. Chart.js available:', typeof Chart !== 'undefined');
+            if (typeof Chart !== 'undefined') {
+                console.log('Chart.js version:', Chart.version);
+            }
+        });
+    </script>
+</body>
+</html>
